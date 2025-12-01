@@ -14,11 +14,7 @@ fn main() {
     let day: u8 = args[1].parse().expect("day must be a number");
     let part: u8 = args[2].parse().expect("part must be a number");
 
-    let use_test_input = if args.len() == 4 {
-        &args[3] == "test"
-    } else {
-        false
-    };
+    let use_test_input = args.len() == 4 && args[3] == "test";
 
     let input = get_input(day, use_test_input);
     let solution_fn = get_solution_fn(day, part);
