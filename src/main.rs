@@ -2,6 +2,7 @@ mod days;
 
 use std::env;
 use std::fs;
+use std::time::Instant;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -22,7 +23,18 @@ fn main() {
     let input = get_input(day, use_test_input);
     let solution_fn = get_solution_fn(day, part);
     
+    let start = Instant::now();
     solution_fn(input, part);
+    let elapsed = start.elapsed();
+
+    println!();
+
+    println!(
+        "executed day {} part {} (with {} input) in {} μs",
+        day,
+        part,
+        if use_test_input { "test" } else { "real" },
+        elapsed.as_micros());
 }
 
 fn get_input(day: u8, use_test_input: bool) -> String {
