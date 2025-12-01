@@ -10,8 +10,8 @@ fn main() {
         panic!("Usage: aoc2025 <day> <1 / 2> <optional: test>");
     }
 
-    let day: u32 = args[1].parse().expect("day must be a number");
-    let part: u32 = args[2].parse().expect("part must be a number");
+    let day: u8 = args[1].parse().expect("day must be a number");
+    let part: u8 = args[2].parse().expect("part must be a number");
 
     let use_test_input = if args.len() == 4 {
         &args[3] == "test"
@@ -22,10 +22,10 @@ fn main() {
     let input = get_input(day, use_test_input);
     let solution_fn = get_solution_fn(day, part);
     
-    solution_fn(input);
+    solution_fn(input, part);
 }
 
-fn get_input(day: u32, use_test_input: bool) -> String {
+fn get_input(day: u8, use_test_input: bool) -> String {
     let input_file = if use_test_input { "test" } else { "input" };
     let input_path = format!("input/{}/{}.txt", day, input_file);
 
@@ -35,10 +35,9 @@ fn get_input(day: u32, use_test_input: bool) -> String {
     return input;
 }
 
-fn get_solution_fn(day: u32, part: u32) -> fn(String) {
-    match (day, part) {
-        (1, 1) => days::day01::part1::day_1_part_1,
-        (1, 2) => days::day01::part2::day_1_part_2,
+fn get_solution_fn(day: u8, part: u8) -> fn(String, u8) {
+    match day {
+        1 => days::day_01::day_01,
         _ => panic!("Day {} Part {} is not implemented yet", day, part),
     }
 }
