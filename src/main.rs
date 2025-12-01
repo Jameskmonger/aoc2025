@@ -17,7 +17,7 @@ fn main() {
     let use_test_input = args.len() == 4 && args[3] == "test";
 
     let input = get_input(day, use_test_input);
-    let solution_fn = get_solution_fn(day, part);
+    let solution_fn = get_solution_fn(day);
     
     let start = Instant::now();
     solution_fn(input, part);
@@ -43,9 +43,9 @@ fn get_input(day: u8, use_test_input: bool) -> String {
     return input;
 }
 
-fn get_solution_fn(day: u8, part: u8) -> fn(String, u8) {
+fn get_solution_fn(day: u8) -> fn(String, u8) {
     match day {
         1 => days::day_01::day_01,
-        _ => panic!("Day {} Part {} is not implemented yet", day, part),
+        _ => panic!("Day {} is not implemented yet", day),
     }
 }
