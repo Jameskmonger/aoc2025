@@ -1,3 +1,5 @@
+mod days;
+
 use std::env;
 use std::fs;
 
@@ -35,6 +37,8 @@ fn get_input(day: u32, use_test_input: bool) -> String {
 
 fn get_solution_fn(day: u32, part: u32) -> fn(String) {
     match (day, part) {
+        (1, 1) => days::day01::part1::day_1_part_1,
+        (1, 2) => days::day01::part2::day_1_part_2,
         _ => panic!("Day {} Part {} is not implemented yet", day, part),
     }
 }
