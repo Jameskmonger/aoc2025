@@ -1,4 +1,4 @@
-pub fn day_01(input: String, part: u8) {
+pub fn day_01(input: &str, part: u8) {
     let mut dial = 50;
     let mut zero_hits = 0;
 

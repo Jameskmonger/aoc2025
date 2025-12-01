@@ -20,7 +20,7 @@ fn main() {
     let solution_fn = get_solution_fn(day);
     
     let start = Instant::now();
-    solution_fn(input, part);
+    solution_fn(&input, part);
     let elapsed = start.elapsed();
 
     println!();
@@ -43,7 +43,7 @@ fn get_input(day: u8, use_test_input: bool) -> String {
     return input;
 }
 
-fn get_solution_fn(day: u8) -> fn(String, u8) {
+fn get_solution_fn(day: u8) -> fn(&str, u8) {
     match day {
         1 => days::day_01::day_01,
         _ => panic!("Day {} is not implemented yet", day),
