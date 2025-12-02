@@ -3,8 +3,14 @@ pub fn day_01(input: &str, part: u8) {
     let mut zero_hits = 0;
 
     for line in input.lines() {
-        let direction = if &line[0..1] == "L" { -1 } else { 1 };
-        let mut distance: i32 = line[1..].trim().parse().unwrap();
+        let (direction_str, distance_str) = line.split_at(1);
+        let direction: i8 = match direction_str {
+            "L" => -1,
+            "R" => 1,
+            other => panic!("unsupported direction: {}", other),
+        };
+
+        let mut distance: u32 = distance_str.trim().parse().expect("unable to parse distance");
 
         while distance > 0 {
             dial += direction;
