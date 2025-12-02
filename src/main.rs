@@ -46,6 +46,7 @@ fn get_input(day: u8, use_test_input: bool) -> String {
 fn get_solution_fn(day: u8) -> fn(&str, u8) {
     match day {
         1 => days::day_01::day_01,
+        2 => days::day_02::day_02,
         _ => panic!("Day {} is not implemented yet", day),
     }
 }
