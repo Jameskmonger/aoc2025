@@ -51,6 +51,7 @@ fn get_solution_fn(day: u8) -> fn(&str, u8) {
         4 => days::day_04::day_04,
         5 => days::day_05::day_05,
         6 => days::day_06::day_06,
+        7 => days::day_07::day_07,
         _ => panic!("Day {} is not implemented yet", day),
     }
 }
